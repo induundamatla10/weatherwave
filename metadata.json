@@ -1,0 +1,6 @@
+{
+  "name": "⛅ Weather Dashboard",
+  "description": "Real-time interactive weather dashboard featuring dynamic live weather backgrounds, meteorological metrics, solar timings, and raw API inspection.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
