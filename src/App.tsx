@@ -16,6 +16,7 @@ import { SearchBar } from './components/SearchBar';
 import { WeatherMetricCard } from './components/WeatherMetricCard';
 import { ForecastSection } from './components/ForecastSection';
 import { RawJsonResponse } from './components/RawJsonResponse';
+import { N8nChatbot } from './components/N8nChatbot';
 import {
   RefreshCw,
   AlertTriangle,
@@ -139,7 +140,21 @@ export default function App() {
           </div>
 
           {/* Unit Switcher & Refresh button */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            {/* n8n Chatbot Button */}
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent('open-n8n-chat'))}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-sky-500/20 to-indigo-500/20 hover:from-sky-500/30 hover:to-indigo-500/30 border border-sky-400/30 text-xs font-semibold text-sky-200 transition-all cursor-pointer shadow-sm active:scale-95"
+              title="Open n8n AI Chatbot"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+              </span>
+              <span>n8n AI Chat</span>
+            </button>
+
             {/* Unit Switcher */}
             <div className="flex items-center bg-black/40 rounded-xl p-1 border border-white/20 text-xs">
               <button
@@ -457,6 +472,9 @@ export default function App() {
           <span>Data provided by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-white/80">Open-Meteo API</a></span>
         </footer>
       </div>
+
+      {/* Floating n8n AI Chatbot */}
+      <N8nChatbot currentWeather={data} tempUnit={unit} />
     </div>
   );
 }
